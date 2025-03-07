@@ -9,6 +9,7 @@ import { EditUserForm } from '../EditUserForm';
 import { showModalForm } from '../../store/notificationState';
 import { DeleteUserModal } from '../DeleteUserModal';
 import style from './UsersList.module.css';
+import { sortDate } from '../../utils/sortDate';
 
 export type TDisplayUsers = {
 	avatar?: string;
@@ -44,16 +45,16 @@ export const UsersList = () => {
 			title: 'ФИО пользователя',
 			key: 'fullName',
 			dataIndex: 'fullName',
-			sorter: (a, b) => a.fullName.length - b.fullName.length,
+			sorter: (a, b) => a.fullName.localeCompare(b.fullName),
 		},
 		{ title: 'Контактные данные', key: 'email', dataIndex: 'email' },
 		{
 			title: 'Дата рождения',
 			key: 'birthdate',
 			dataIndex: 'birthdate',
-			sorter: (a, b) => a.birthdate.length - b.birthdate.length,
+			sorter: (a, b) => sortDate(a.birthdate, b.birthdate),
 		},
-		{ title: 'Пол', key: 'gender', dataIndex: 'gender', sorter: (a, b) => a.gender.length - b.gender.length },
+		{ title: 'Пол', key: 'gender', dataIndex: 'gender', sorter: (a, b) => a.gender.localeCompare(b.gender) },
 		{ title: 'Роль', key: 'role', dataIndex: 'role' },
 		{
 			title: '',
