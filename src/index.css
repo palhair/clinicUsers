@@ -1,0 +1,8 @@
+body {
+	margin: 0 auto;
+}
+:root {
+	--ant-background-color-light: #f2f4f7;
+	/* --ant-table-header-bg: white;
+	--ant-table-bg: #dae3f1; */
+}
