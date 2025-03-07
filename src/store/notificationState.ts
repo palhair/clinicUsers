@@ -28,8 +28,8 @@ const notificationState = createSlice({
 			state.isModalFormOpen = false;
 		},
 
-		showNotification: (state, action: PayloadAction<Omit<TNotification, 'open' | 'isModalFormOpen'>>) => {
-			return (state = { ...action.payload, open: true, isModalFormOpen: false });
+		showNotification: (_state, action: PayloadAction<Omit<TNotification, 'open' | 'isModalFormOpen'>>) => {
+			return { ...action.payload, open: true, isModalFormOpen: false };
 		},
 
 		closeNotification: (state) => {
